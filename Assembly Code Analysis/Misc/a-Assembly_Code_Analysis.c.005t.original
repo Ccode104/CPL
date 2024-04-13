@@ -1,0 +1,31 @@
+
+;; Function fib (null)
+;; enabled by -tree-original
+
+
+{
+  if (n <= 1)
+    {
+      return n;
+    }
+  else
+    {
+      return fib (n + -1) + fib (n + -2);
+    }
+}
+
+
+;; Function main (null)
+;; enabled by -tree-original
+
+
+{
+  int a;
+  int res;
+
+    int a;
+    int res;
+  a = 5;
+  res = fib (a);
+}
+

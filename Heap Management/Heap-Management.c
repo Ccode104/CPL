@@ -208,11 +208,18 @@ void free_h(char *ptr,heap *h)
 	 		
         }
         else{
-        	//If insert at start
+        	//prev is NULL
+        	//If insert at start 
         	ptr_n=(unsigned int*)(ptr-4);
         	*(ptr_n)=(h->lptr);
         	
         	ptr_s=(unsigned int*)(ptr-8);
+
+        	//Check for merge case
+        	if((curr-h->byte)==(*ptr_s))
+        	{
+        		*ptr_s+=*((unsigned int*)curr);
+        	}
 
  
 		    h->lptr=(ptr-(h->byte))-8;
@@ -263,10 +270,6 @@ void main()
 	printf("\nValue of float = %f",*f);
 	free_h((char*)f,&h);	
 	
-	
-	
-
-
 	//After all are freed the values still prevail
 	printf("\nValue of integer after free %d",*(n));
 	printf("\nValue of char after free %c",*c);
